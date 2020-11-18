@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "noImplicitAny": false,
+        "preserveConstEnums": true,
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "allowJs": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "target": "ESNext"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules/**/*",
+        "**/node_modules/**/*"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "./src/typings/**/*",
+            "./src/typings/types.d.ts"
+        ]
+    }
+}

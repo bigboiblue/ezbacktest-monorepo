@@ -1,0 +1,120 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "install",
+            "problemMatcher": []
+        },
+        {
+            "label": "Launch Gulp",
+            "type": "process",
+            // "windows": {
+            //     "options": {
+            //         "shell": {
+            //             "executable": "C:\\Windows\\System32\\wsl.exe",
+            //         },
+            //         "env": {
+            //             "PATH": "/home/kyle/.nvm/versions/node/v14.3.0/bin/"
+            //         }
+            //     },
+            //     "command": "export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && source \"$NVM_DIR/nvm.sh\" && [ -s \"$NVM_DIR/bash_completion\" ] && source \"$NVM_DIR/bash_completion\" && nvm use 14 && npm version",
+            // },
+            "group": "build",
+            "command": "C:\\Windows\\System32\\wsl.exe",
+            "args": [
+                // "version",
+                "bash",
+                "-c",
+                "/mnt/c/Users/Kyle/Documents/Workspace/Javascript/trading_nodejs_client_server/test.sh"
+            ],
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Compile SASS",
+            "type": "process",
+            "group": "build",
+            "command": "node-sass",
+            "args": [
+                {
+                    "quoting": "strong",
+                    "value": "${file}"
+                },
+                {
+                    "quoting": "strong",
+                    "value": "${fileDirname}/../css/${fileBasenameNoExtension}.css"
+                }
+            ],
+            "problemMatcher": "$node-sass",
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Compile TypeScript",
+            "type": "process",
+            "group": "build",
+            "command": "babel",
+            "args": [
+                {
+                    "quoting": "strong",
+                    "value": "${file}"
+                },
+                {
+                    "value": "-o"
+                },
+                {
+                    "quoting": "strong",
+                    "value": "${fileDirname}/${fileBasenameNoExtension}.js"
+                }
+            ],
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Compile TypeScript TSC",
+            "type": "process",
+            "group": "build",
+            "command": "tsc",
+            "args": [
+                {
+                    "quoting": "strong",
+                    "value": "${file}"
+                }
+            ],
+            "isBackground": true,
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        }
+    ]
+}

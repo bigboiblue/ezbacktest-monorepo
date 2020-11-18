@@ -1,0 +1,91 @@
+{
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "react-hooks"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "semi": [
+            "warn",
+            "always"
+        ],
+        "quotes": [
+            "warn",
+            "double"
+        ],
+        "space-before-function-paren": "off",
+        "indent": [
+            "warn",
+            4
+        ],
+        "prefer-const": "off",
+        "no-unused-vars": "off",
+        "lines-between-class-members": "off",
+        "spaced-comment": "off",
+        "no-underscore-dangle": "off",
+        "strict": "off",
+        "linebreak-style": 0,
+        "no-restricted-syntax": 0,
+        "import/newline-after-import": "off",
+        "import/no-unresolved": "off",
+        "no-console": "off",
+        "no-multiple-empty-lines": [
+            "warn",
+            {
+                "max": 2,
+                "maxEOF": 1
+            }
+        ],
+        "no-undef": "off",
+        "no-unused-expressions": "warn",
+        "class-methods-use-this": "warn",
+        "no-plusplus": "off",
+        "no-param-reassign": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/no-inferrable-types": "warn",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/explicit-function-return-type": [
+            "warn",
+            {
+                "allowExpressions": true
+            }
+        ],
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": [
+            "warn",
+            4
+        ],
+        "react/destructuring-assignment": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-indent-props": "off",
+        "import/extensions": [
+            1,
+            {
+                "ts": 0,
+                "tsx": 0,
+                "js": 0,
+                "jsx": 0
+            }
+        ]
+    }
+}

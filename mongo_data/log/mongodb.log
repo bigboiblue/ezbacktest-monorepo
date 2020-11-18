@@ -1,0 +1,58 @@
+2020-11-18T12:27:29.418+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-11-18T12:27:29.421+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=9 port=27017 dbpath=/data/db 64-bit host=512102e219fb
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] db version v4.2.10
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] modules: none
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] build environment:
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-11-18T12:27:29.422+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-11-18T12:27:29.423+0000 I  STORAGE  [initandlisten] 
+2020-11-18T12:27:29.423+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2020-11-18T12:27:29.423+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2020-11-18T12:27:29.423+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-11-18T12:27:30.191+0000 I  STORAGE  [initandlisten] WiredTiger message [1605702450:191625][9:0x7ff657ab9d40], txn-recover: Set global recovery timestamp: (0, 0)
+2020-11-18T12:27:30.242+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-11-18T12:27:30.299+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] 
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] 
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] 
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2020-11-18T12:27:30.329+0000 I  CONTROL  [initandlisten] 
+2020-11-18T12:27:30.330+0000 I  STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 14819535-d171-49ec-b2c6-0d373a7bbc63 and options: { uuid: UUID("14819535-d171-49ec-b2c6-0d373a7bbc63") }
+2020-11-18T12:27:30.386+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns admin.system.version
+2020-11-18T12:27:30.388+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-11-18T12:27:30.388+0000 I  COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.2
+2020-11-18T12:27:30.388+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-11-18T12:27:30.388+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-11-18T12:27:30.388+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-11-18T12:27:30.389+0000 I  STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 57522754-e00d-47d0-b708-68f70776399a and options: { capped: true, size: 10485760 }
+2020-11-18T12:27:30.451+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.startup_log
+2020-11-18T12:27:30.451+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-11-18T12:27:30.452+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-11-18T12:27:30.454+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-11-18T12:27:30.455+0000 I  STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with provided UUID: 9037dbf6-27da-4a1c-9ae6-503fbc120755 and options: { uuid: UUID("9037dbf6-27da-4a1c-9ae6-503fbc120755") }
+2020-11-18T12:27:30.456+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-11-18T12:27:30.456+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-11-18T12:27:30.456+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-11-18T12:27:30.514+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index _id_ on ns config.system.sessions
+2020-11-18T12:27:30.587+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: starting on config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 } using method: Hybrid
+2020-11-18T12:27:30.587+0000 I  INDEX    [LogicalSessionCacheRefresh] build may temporarily use up to 200 megabytes of RAM
+2020-11-18T12:27:30.588+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: collection scan done. scanned 0 total records in 0 seconds
+2020-11-18T12:27:30.589+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: inserted 0 keys from external sorter into index in 0 seconds
+2020-11-18T12:27:30.597+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index lsidTTLIndex on ns config.system.sessions
+2020-11-18T12:27:30.609+0000 I  COMMAND  [LogicalSessionCacheRefresh] command config.system.sessions command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:114 locks:{ ParallelBatchWriterMode: { acquireCount: { r: 2 } }, ReplicationStateTransition: { acquireCount: { w: 3 } }, Global: { acquireCount: { r: 1, w: 2 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 4, w: 1, R: 1, W: 2 } }, Mutex: { acquireCount: { r: 3 } } } flowControl:{ acquireCount: 1, timeAcquiringMicros: 1 } storage:{} protocol:op_msg 153ms
+2020-11-18T12:27:30.609+0000 I  COMMAND  [LogicalSessionCacheReap] command config.system.sessions command: listIndexes { listIndexes: "system.sessions", cursor: {}, $db: "config" } numYields:0 reslen:307 locks:{ ReplicationStateTransition: { acquireCount: { w: 1 } }, Global: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 }, acquireWaitCount: { r: 1 }, timeAcquiringMicros: { r: 153218 } }, Collection: { acquireCount: { r: 1 } }, Mutex: { acquireCount: { r: 1 } } } storage:{} protocol:op_msg 153ms
+2020-11-18T12:27:30.609+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-11-18T12:27:31.000+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-11-18T12:32:31.327+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:44592 #1 (1 connection now open)
+2020-11-18T12:32:31.327+0000 I  NETWORK  [conn1] received client metadata from 127.0.0.1:44592 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.10" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.104-microsoft-standard" } }
+2020-11-18T12:32:37.092+0000 I  NETWORK  [conn1] end connection 127.0.0.1:44592 (0 connections now open)

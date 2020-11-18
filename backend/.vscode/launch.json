@@ -1,0 +1,50 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Gulp NoDebug",
+            "windows": {},
+            "console": "integratedTerminal",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "start"
+            ],
+            "program": "${workspaceFolder}/src/bin/www.ts",
+            "restart": true,
+            "address": "0.0.0.0",
+            "port": 25585,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Launch & Attach to Node using Gulp",
+            "restart": true,
+            "address": "0.0.0.0",
+            "port": 25585,
+            "sourceMaps": true,
+            "preLaunchTask": "Launch Gulp",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js",
+            ]
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Node using Gulp",
+            "restart": true,
+            "address": "0.0.0.0",
+            "port": 25585,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js",
+                "${workspaceFolder}/dist/**/*.js.map",
+            ]
+        },
+    ]
+}
