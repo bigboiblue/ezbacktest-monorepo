@@ -1,0 +1,44 @@
+version: "3"
+# EzBacktest
+services:
+  backend:
+    build:
+      context: ./backend
+    entrypoint: /app/docker/backend/container_startup.sh
+    volumes:
+      - ../backend:/app
+      - /app/docker
+      - ./backend/container_startup.sh:/app/docker/backend/container_startup.sh
+    links:
+      - "database"
+    ports:
+      - "8081:8081"
+      - "25585:25585"
+    stdin_open: true
+    tty: true
+
+  database:
+    build:
+      context: ./database
+    entrypoint: /app/docker/database/container_startup.sh
+    volumes:
+      - ./database/container_startup.sh:/app/docker/database/container_startup.sh
+      - ../mongo_data/:/data/db/
+      - ../mongo_data/log/:/var/log/
+    ports:
+      - "27017"
+    stdin_open: true
+    tty: true
+
+  frontend:
+    build:
+      context: ./frontend
+    entrypoint: /app/docker/frontend/container_startup.sh
+    volumes:
+      - ../frontend:/app
+      - /app/docker
+      - ./frontend/container_startup.sh:/app/docker/frontend/container_startup.sh
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true

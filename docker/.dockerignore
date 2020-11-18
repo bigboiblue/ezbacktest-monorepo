@@ -1,0 +1,8 @@
+npm-debug.log
+docker
+!container_startup.sh
+.git
+.gitignore
+README.md
+LICENSE
+.vscode
