@@ -1,7 +1,8 @@
 import { Router } from "express";
+import chartRouter from "./chart";
 const router = Router();
 
-// router.use("/ohlc", ohlcRouter);
+router.use("/chart", chartRouter);
 
 export default router;
 

@@ -1,5 +1,6 @@
 import express from "express";
 import routesRouter from "./routes";
+import "../Database";
 const app = express();
 
 app.use((request, response, next) => {
