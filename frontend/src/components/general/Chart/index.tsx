@@ -3,6 +3,7 @@ import axios from "axios";
 import DyGraph from "dygraphs";
 import path from "path";
 import { CropLandscapeOutlined, ControlPointSharp } from "@material-ui/icons";
+import Axios from "axios";
 import { ThemeContext, ThemeType } from "../../../styles/GlobalUserTheme";
 import { ChartContainer, ChartContainer2 } from "../styles/ChartStyles";
 import { OHLCPlotter } from "./OHLCPlotter";
@@ -12,6 +13,8 @@ import {
 import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./defaults";
 import synchronize from "./DyPlugins/synchronize";
 import { ohlcData } from "../../../assets/data/aapl_1d";
+import { ChartSettings } from "./chart_typings";
+//@ts-ignore
 DyGraph.synchronize = synchronize;
 
 const TIME_OFFSET = 0;
@@ -46,9 +49,22 @@ function Chart(props: Props): React.ReactElement {
     const [forceUpdateVal, forceUpdate] = useState(false);
     const [graph, setGraph] = useState();
     const [graph2, setGraph2] = useState();
+    const [chartSettings, setChartSettings] = useState();
     const chartRef = useRef(null);
     const chartRef2 = useRef(null);
 
+
+    if (!chartSettings) {
+        Axios.get("http://localhost:8081/api/v1/chart?user_id=1")
+            .then((ret) => {
+                if (!ret.data.isError) {
+                    const settings: ChartSettings = ret.data.payload;
+                    settings.date_start = new Date(settings.date_start);
+                    settings.date_end = new Date(settings.date_end);
+                    setChartSettings(ret.data.payload);
+                }
+            });
+    }
 
     useEffect(() => {
         //TODO: pass args to plotter for EMA etc.
