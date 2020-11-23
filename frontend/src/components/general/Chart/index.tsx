@@ -14,6 +14,7 @@ import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./defaults";
 import synchronize from "./DyPlugins/synchronize";
 import { ohlcData } from "../../../assets/data/aapl_1d";
 import { ChartSettings } from "./chart_typings";
+import chartSettings from "./ChartSettings";
 //@ts-ignore
 DyGraph.synchronize = synchronize;
 
@@ -49,19 +50,18 @@ function Chart(props: Props): React.ReactElement {
     const [forceUpdateVal, forceUpdate] = useState(false);
     const [graph, setGraph] = useState();
     const [graph2, setGraph2] = useState();
-    const [chartSettings, setChartSettings] = useState();
     const chartRef = useRef(null);
     const chartRef2 = useRef(null);
 
 
-    if (!chartSettings) {
+    if (!chartSettings.isInitialised) {
+        /** //TODO:: THIS NEEDS TO BE A SINGLETON */
         Axios.get("http://localhost:8081/api/v1/chart?user_id=1")
             .then((ret) => {
                 if (!ret.data.isError) {
-                    const settings: ChartSettings = ret.data.payload;
-                    settings.date_start = new Date(settings.date_start);
-                    settings.date_end = new Date(settings.date_end);
-                    setChartSettings(ret.data.payload);
+                    chartSettings.initialise(ret.data.payload);
+                    chartSettings.date_start = new Date(chartSettings.date_start);
+                    chartSettings.date_end = new Date(chartSettings.date_end);
                 }
             });
     }
