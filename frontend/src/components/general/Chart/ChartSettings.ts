@@ -1,17 +1,17 @@
-import { ChartSettings as ChartSettingsType } from "./chart_typings";
+import { ChartSettings as ChartSettingsType, Sector, Theming } from "./chart_typings";
 
 class ChartSettings implements ChartSettingsType {
     isInitialised = false;
 
-    user_id = null;
-    current = null;
-    date_start = null;
-    date_end = null;
-    name = null;
-    period = null;
-    symbol = null;
-    theming = {};
-    sectors = [];
+    user_id: number = null;
+    current: boolean = null;
+    date_start: Date = null;
+    date_end: Date = null;
+    name: string = null;
+    period: string = null;
+    symbol: string = null;
+    theming: Theming = {};
+    sectors: Sector[] = [];
 
     initialise(other: ChartSettingsType): void {
         this.user_id = other.user_id;

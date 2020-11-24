@@ -4,11 +4,13 @@ export const temp = 0;
 
 export const ChartContainer = styled.div`
     width: 100%;
-    height: 40rem;
-    background: rgba(255, 255, 255, 0.7);
+    background: ${(props) => props.bg_color};
+    flex: ${(props) => props.flex};
+    order: ${(props) => props.order};
+
 
     & .dygraph-axis-label{
-        color: #00573b;
+        color:  ${(props) => props.font_color};
         font: 0.75rem sans-serif;
 
 
@@ -22,23 +24,10 @@ export const ChartContainer = styled.div`
     }
 `;
 
-
-export const ChartContainer2 = styled.div`
+export const AllChartsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 10rem;
-    background: rgba(255, 255, 255, 0.7);
-
-    & .dygraph-axis-label{
-        color: #00573b;
-        font: 0.75rem sans-serif;
-
-
-        user-select: none; /** */
-        pointer-events: none; /** */
-        position: absolute; /** Used to click through text, allowing scaling using axis */
-    }
-
-    & .dygraph-axis-label-y1 {
-        font: 0rem sans-serif;
-    }
+    height: ${(props) => props.height};
 `;
+

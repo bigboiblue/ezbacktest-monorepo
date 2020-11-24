@@ -1,0 +1,55 @@
+2020-11-24T13:16:26.089+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-11-24T13:16:26.818+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-11-24T13:16:26.818+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=8 port=27017 dbpath=/data/db 64-bit host=512102e219fb
+2020-11-24T13:16:26.818+0000 I  CONTROL  [initandlisten] db version v4.2.10
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] modules: none
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] build environment:
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-11-24T13:16:26.819+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-11-24T13:16:26.832+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-11-24T13:16:26.832+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-11-24T13:16:26.832+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-11-24T13:16:26.832+0000 I  STORAGE  [initandlisten] 
+2020-11-24T13:16:26.832+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2020-11-24T13:16:26.832+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2020-11-24T13:16:26.832+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-11-24T13:16:27.639+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223787:639658][8:0x7ff07afd9d40], txn-recover: Recovering log 4 through 5
+2020-11-24T13:16:27.695+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223787:695218][8:0x7ff07afd9d40], txn-recover: Recovering log 5 through 5
+2020-11-24T13:16:27.903+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223787:903352][8:0x7ff07afd9d40], txn-recover: Main recovery loop: starting at 4/28800 to 5/256
+2020-11-24T13:16:28.095+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223788:95653][8:0x7ff07afd9d40], txn-recover: Recovering log 4 through 5
+2020-11-24T13:16:28.165+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223788:165679][8:0x7ff07afd9d40], txn-recover: Recovering log 5 through 5
+2020-11-24T13:16:28.221+0000 I  STORAGE  [initandlisten] WiredTiger message [1606223788:221638][8:0x7ff07afd9d40], txn-recover: Set global recovery timestamp: (0, 0)
+2020-11-24T13:16:28.731+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-11-24T13:16:28.743+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-11-24T13:16:28.960+0000 I  CONTROL  [initandlisten] 
+2020-11-24T13:16:28.960+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-11-24T13:16:28.960+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-11-24T13:16:28.960+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-11-24T13:16:28.960+0000 I  CONTROL  [initandlisten] 
+2020-11-24T13:16:28.961+0000 I  CONTROL  [initandlisten] 
+2020-11-24T13:16:28.961+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2020-11-24T13:16:28.961+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2020-11-24T13:16:28.961+0000 I  CONTROL  [initandlisten] 
+2020-11-24T13:16:28.972+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-11-24T13:16:29.116+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-11-24T13:16:29.117+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-11-24T13:16:29.117+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-11-24T13:16:29.120+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-11-24T13:16:29.121+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-11-24T13:16:29.125+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-11-24T13:16:29.125+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-11-24T13:16:29.125+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-11-24T13:16:29.125+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-11-24T13:16:29.125+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-11-24T13:16:30.354+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2020-11-24T13:16:30.472+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-11-24T13:16:53.371+0000 I  COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after connections: 0, after electionMetrics: 406, after extra_info: 406, after flowControl: 406, after freeMonitoring: 406, after globalLock: 406, after locks: 406, after logicalSessionRecordCache: 661, after network: 661, after opLatencies: 661, after opReadConcernCounters: 661, after opcounters: 661, after opcountersRepl: 661, after oplogTruncation: 662, after repl: 662, after security: 662, after storageEngine: 662, after tcmalloc: 838, after trafficRecording: 838, after transactions: 838, after transportSecurity: 838, after twoPhaseCommitCoordinator: 838, after wiredTiger: 838, at end: 1121 }
+2020-11-24T13:17:23.313+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:44644 #1 (1 connection now open)
+2020-11-24T13:17:23.338+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.4:44644 conn1: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-11-24T13:17:43.320+0000 I  COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after connections: 0, after electionMetrics: 0, after extra_info: 0, after flowControl: 1940, after freeMonitoring: 1950, after globalLock: 1960, after locks: 1960, after logicalSessionRecordCache: 1960, after network: 1960, after opLatencies: 1960, after opReadConcernCounters: 1960, after opcounters: 1960, after opcountersRepl: 1960, after oplogTruncation: 2396, after repl: 2396, after security: 2396, after storageEngine: 2396, after tcmalloc: 2396, after trafficRecording: 3752, after transactions: 3832, after transportSecurity: 3832, after twoPhaseCommitCoordinator: 3832, after wiredTiger: 3842, at end: 4670 }
+2020-11-24T13:17:55.549+0000 I  COMMAND  [ftdc] serverStatus was very slow: { after basic: 0, after asserts: 0, after connections: 0, after electionMetrics: 0, after extra_info: 0, after flowControl: 0, after freeMonitoring: 0, after globalLock: 0, after locks: 0, after logicalSessionRecordCache: 70, after network: 70, after opLatencies: 70, after opReadConcernCounters: 70, after opcounters: 70, after opcountersRepl: 70, after oplogTruncation: 70, after repl: 70, after security: 70, after storageEngine: 70, after tcmalloc: 138, after trafficRecording: 138, after transactions: 138, after transportSecurity: 138, after twoPhaseCommitCoordinator: 138, after wiredTiger: 148, at end: 1216 }
