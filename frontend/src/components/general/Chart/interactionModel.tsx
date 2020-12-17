@@ -1,5 +1,5 @@
 import Dygraph from "dygraphs";
-import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./defaults";
+import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./default_values.js";
 
 let xAxisWidth = X_AXIS_WIDTH;
 let yAxisWidth = Y_AXIS_WIDTH;

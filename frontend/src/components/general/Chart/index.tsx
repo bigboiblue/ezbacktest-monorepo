@@ -2,21 +2,21 @@ import React, {
     useState, useEffect, useRef, ReactElement,
 } from "react";
 import DyGraph from "dygraphs";
-import path from "path";
-import { CropLandscapeOutlined, ControlPointSharp, GraphicEqOutlined } from "@material-ui/icons";
 import axios from "axios";
-import { setRef } from "@material-ui/core";
+import path from "path";
 import { ThemeContext, ThemeType } from "../../../styles/GlobalUserTheme";
-import { AllChartsContainer, ChartContainer, ChartContainer2 } from "../styles/ChartStyles";
-import { OHLCPlotter } from "./OHLCPlotter";
+import { AllChartsContainer, ChartContainer } from "../styles/ChartStyles";
 import {
     mouseDown, mouseMove, mouseUp, mouseClick, mouseDoubleClick, mouseScroll,
 } from "./interactionModel";
-import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./defaults";
+import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./default_values.js";
 import synchronize from "./DyPlugins/synchronize";
 import { ohlcData } from "../../../assets/data/aapl_1d";
-import { ChartSettings, Sector } from "./chart_typings";
+import {
+    CalculateOptions, ChartSettings, Params, Sector,
+} from "./chart_typings";
 import chartSettings from "./ChartSettings";
+import allPlotter from "./Plotters/allPlotter";
 //@ts-ignore
 DyGraph.synchronize = synchronize;
 
@@ -56,7 +56,7 @@ function Chart(props: Props): React.ReactElement {
                 }
 
                 /** //TODO:  remove this , this is temporary (for testing) */
-                const wot = {
+                const wot: ChartSettings = {
                     user_id: 1,
                     name: "default",
                     current: true,
@@ -75,12 +75,12 @@ function Chart(props: Props): React.ReactElement {
                         grid_color: "#666666",
                     },
                     sectors: [{
-                        position: 2,
+                        position: 1,
                         size: 0.7,
                         indicators: [{
-                            link: "raw.js",
+                            link: "raw.ts",
                             params: {
-                                style: "candlestick", upColor: "#3ccf5e", downColor: "#f75c5c", lineColor: "#202020",
+                                style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
                             },
                             z_index: 1,
                         }],
@@ -95,25 +95,17 @@ function Chart(props: Props): React.ReactElement {
                             z_index: 1,
                         }],
                     }, {
-                        position: 1,
+                        position: 2,
                         size: 0.3,
                         indicators: [{
-                            link: "raw.js",
+                            link: "raw.ts",
                             params: {
-                                style: "candlestick", upColor: "#3ccf5e", downColor: "#f75c5c", lineColor: "#202020",
+                                style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
                             },
                             z_index: 1,
                         }],
                         theming: {},
-                        drawings: [{
-                            type: "square",
-                            location: [0, 0],
-                            height: 10,
-                            bg_color: "#0000ff",
-                            line_color: "#000000",
-                            width: 10,
-                            z_index: 1,
-                        }],
+                        drawings: [],
                     }],
                 };
                 chartSettings.initialise(wot);
@@ -140,8 +132,6 @@ function Chart(props: Props): React.ReactElement {
         }
         containers = allContainers;
         setForceUpdate(!forceUpdate);
-
-        console.log("OIJ");
     }, [chartSettings.isInitialised]);
 
     // TODO: add margin, grid and axis theming loading
@@ -152,11 +142,36 @@ function Chart(props: Props): React.ReactElement {
         for (let i = 0; i < chartSettings.sectors.length; i++) {
             const sector = chartSettings.sectors[i];
             const shouldDrawXAxis = sector.position === maxPosition;
+
+            const indicatorStyles: string[] = [];
+            const indicatorColors: string[][] = [];
+            const indicatorVals = [];
+            const imports = [];
+            for (let j = 0; j < sector.indicators.length; j++) {
+                const indicator = sector.indicators[j];
+                // TODO: ERROR cannot find file (cos its a bundle). Instead, get file from server.
+                const link = `./Indicators/${indicator.link}`;
+                indicatorStyles.push(indicator.params.style);
+                indicatorColors.push(indicator.params.colors);
+                imports.push(import(link));
+                // TODO: Now run calculate function in the file at indicator.link and add it to indicatorVals array (ensure no duplicate dates)
+            }
+            Promise.all(imports).then((values) => {
+                console.log("DIOWJOIDJWO");
+                for (let x = 0; x < values.length; x++) {
+                    let calculate: (options: CalculateOptions) => any = values[0];
+                    const params = sector.indicators[x].params;
+                    // TODO: preprocess data so that it's split into opens[] closes[] highs[] lows[] volumes[] and dates[]
+                    // calculate({...params, data});
+                    console.log(values);
+                }
+            });
+
             allGraphs.push(new DyGraph(chartRefs.current[i], ohlcData,
                 {
                     labels: ["time", "open", "high", "low", "close"],
                     digitsAfterDecimal: 5,
-                    plotter: (e) => { OHLCPlotter(e, "Other", "args"); },
+                    plotter: (e) => { allPlotter(e, { indicatorStyles, indicatorColors }); },
                     series: {
                         open: { axis: "y2" },
                         high: { axis: "y2" },

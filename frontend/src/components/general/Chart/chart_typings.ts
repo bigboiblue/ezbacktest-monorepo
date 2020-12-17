@@ -39,8 +39,31 @@ export type Theming = {
 
 export type Indicator = {
     link: string;
-    params?: Record<string, any>;
+    params?: Params;
     z_index: number;
+}
+
+export type Params = {
+    style: "candlestick" | "bar" | "histogram" | "line" | "area";
+    /*** For candlesticks, the colors take on the format: [upColor, upOutline, downColor, downOutline, dojiColor] */
+    colors: string[];
+    [field: string]: any;
+}
+
+
+export type CalculateOptions = {
+    data: Data;
+    style: "candlestick" | "bar" | "histogram" | "line" | "area";
+    colors: string[];
+}
+
+export type Data = {
+    dates: Date[];
+    opens: number[];
+    closes: number[];
+    highs: number[];
+    lows: number[];
+    volumes: number[];
 }
 
 

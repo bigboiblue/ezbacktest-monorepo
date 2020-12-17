@@ -13,7 +13,7 @@ function darkenColor(colorStr) {
 // This function draws bars for a single series. See
 // multiColumnBarPlotter below for a plotter which can draw multi-series
 // bar charts.
-function barChartPlotter(e) {
+function barPlotter(e) {
     let ctx = e.drawingContext;
     let { points } = e;
     let y_bottom = e.dygraph.toDomYCoord(0);
@@ -57,7 +57,7 @@ g = new Dygraph(
         dateWindow: [Date.parse("2012/07/20"), Date.parse("2012/07/26")],
         animatedZooms: true,
         drawXGrid: false,
-        plotter: barChartPlotter,
+        plotter: barPlotter,
     },
 );
 
@@ -197,7 +197,7 @@ g3 = new Dygraph(
             strokeWidth: 2,
         },
         B: {
-            plotter: barChartPlotter,
+            plotter: barPlotter,
         },
     },
 );
