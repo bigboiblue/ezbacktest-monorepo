@@ -162,7 +162,9 @@ function Chart(props: Props): React.ReactElement {
                     let calculate: (options: CalculateOptions) => any = values[0];
                     const params = sector.indicators[x].params;
                     // TODO: preprocess data so that it's split into opens[] closes[] highs[] lows[] volumes[] and dates[]
-                    // calculate({...params, data});
+                    // result = calculate({...params, data});
+                    // indicatorStyles.push(results.style);
+                    // indicatorColors.push(results.colors);
                     console.log(values);
                 }
             });

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { charts } from "./db_models/chart";
-import { Chart } from "./chart_typings";
+import { Chart } from "./typings/chart";
 import { createResponse } from "./utility";
 const router = Router();
 
