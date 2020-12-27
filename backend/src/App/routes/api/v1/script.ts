@@ -19,11 +19,12 @@ router.post("/", async (request, response, next) => {
     // TODO: do some validation on request
     const req: Script = request.body;
     const document = { user_id: req.user_id, name: req.name, function: req.function };
-    const result = await scripts.insertMany(document);
+    // Inserts if doesn't exist, and updates if it does exist
+    const result = await scripts.update({ user_id: document.user_id, name: document.name }, document, { upsert: true });
 
     response.type("application/json");
     response.status(200);
-    response.send({ type: "status", status: "Added script successfully" });
+    response.send({ type: "status", status: "Added / Updated script successfully" });
 });
 
 

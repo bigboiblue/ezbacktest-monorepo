@@ -1,0 +1,55 @@
+2020-12-20T20:32:43.993+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-12-20T20:32:44.001+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=10 port=27017 dbpath=/data/db 64-bit host=512102e219fb
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] db version v4.2.10
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] modules: none
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] build environment:
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-12-20T20:32:44.002+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-12-20T20:32:44.004+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-12-20T20:32:44.004+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-12-20T20:32:44.004+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-12-20T20:32:44.004+0000 I  STORAGE  [initandlisten] 
+2020-12-20T20:32:44.004+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2020-12-20T20:32:44.004+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2020-12-20T20:32:44.004+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-12-20T20:32:44.730+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496364:730972][10:0x7f269b840d40], txn-recover: Recovering log 8 through 9
+2020-12-20T20:32:44.838+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496364:838340][10:0x7f269b840d40], txn-recover: Recovering log 9 through 9
+2020-12-20T20:32:44.926+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496364:926776][10:0x7f269b840d40], txn-recover: Main recovery loop: starting at 8/63616 to 9/256
+2020-12-20T20:32:45.013+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496365:13453][10:0x7f269b840d40], txn-recover: Recovering log 8 through 9
+2020-12-20T20:32:45.077+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496365:77254][10:0x7f269b840d40], txn-recover: Recovering log 9 through 9
+2020-12-20T20:32:45.121+0000 I  STORAGE  [initandlisten] WiredTiger message [1608496365:121933][10:0x7f269b840d40], txn-recover: Set global recovery timestamp: (0, 0)
+2020-12-20T20:32:45.217+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-12-20T20:32:45.225+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-12-20T20:32:45.234+0000 I  CONTROL  [initandlisten] 
+2020-12-20T20:32:45.234+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-12-20T20:32:45.234+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-12-20T20:32:45.234+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-12-20T20:32:45.235+0000 I  CONTROL  [initandlisten] 
+2020-12-20T20:32:45.235+0000 I  CONTROL  [initandlisten] 
+2020-12-20T20:32:45.235+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2020-12-20T20:32:45.235+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2020-12-20T20:32:45.235+0000 I  CONTROL  [initandlisten] 
+2020-12-20T20:32:45.244+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-12-20T20:32:45.248+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-12-20T20:32:45.248+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-12-20T20:32:45.249+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-12-20T20:32:45.251+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-12-20T20:32:45.252+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-12-20T20:32:45.257+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-12-20T20:32:45.258+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-12-20T20:32:45.258+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-12-20T20:32:45.258+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-12-20T20:32:45.258+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-12-20T20:32:46.006+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2020-12-20T20:32:46.023+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-12-20T20:32:54.849+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:50388 #1 (1 connection now open)
+2020-12-20T20:32:54.859+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.4:50388 conn1: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-20T20:33:52.878+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:50410 #2 (2 connections now open)
+2020-12-20T20:33:52.879+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.4:50410 conn2: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-20T20:33:52.883+0000 I  SHARDING [conn2] Marking collection ezbacktest.charts as collection version: <unsharded>
