@@ -12,7 +12,9 @@ export const chartSchema = new mongoose.Schema({
         position: { type: Number, required: true },
         size: { type: Number, required: true },
         indicators: [{
-            link: { type: String, required: true },
+            name: { type: String, required: true },
+            user_id: { type: String, required: true },
+            private: { type: Boolean, required: true }, // Is the indicator script public or private?
             params: { type: Object, required: false },
             z_index: { type: Number, required: true, default: 1 },
         }],

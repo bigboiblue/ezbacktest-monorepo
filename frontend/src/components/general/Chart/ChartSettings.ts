@@ -1,4 +1,4 @@
-import { ChartSettings as ChartSettingsType, Sector, Theming } from "./chart_typings";
+import { ChartSettings as ChartSettingsType, Sector, Theming } from "./typings/chart";
 
 class ChartSettings implements ChartSettingsType {
     isInitialised = false;

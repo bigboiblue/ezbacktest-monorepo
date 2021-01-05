@@ -1,0 +1,73 @@
+2020-12-27T13:55:36.370+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-12-27T13:55:36.380+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=10 port=27017 dbpath=/data/db 64-bit host=512102e219fb
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] db version v4.2.10
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] modules: none
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] build environment:
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-12-27T13:55:36.380+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-12-27T13:55:36.382+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-12-27T13:55:36.382+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-12-27T13:55:36.383+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-12-27T13:55:36.383+0000 I  STORAGE  [initandlisten] 
+2020-12-27T13:55:36.383+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2020-12-27T13:55:36.383+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2020-12-27T13:55:36.383+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-12-27T13:55:37.109+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:109653][10:0x7f83d6c12d40], txn-recover: Recovering log 9 through 10
+2020-12-27T13:55:37.167+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:167747][10:0x7f83d6c12d40], txn-recover: Recovering log 10 through 10
+2020-12-27T13:55:37.235+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:235718][10:0x7f83d6c12d40], txn-recover: Main recovery loop: starting at 9/14080 to 10/256
+2020-12-27T13:55:37.320+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:320821][10:0x7f83d6c12d40], txn-recover: Recovering log 9 through 10
+2020-12-27T13:55:37.381+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:381338][10:0x7f83d6c12d40], txn-recover: Recovering log 10 through 10
+2020-12-27T13:55:37.422+0000 I  STORAGE  [initandlisten] WiredTiger message [1609077337:422973][10:0x7f83d6c12d40], txn-recover: Set global recovery timestamp: (0, 0)
+2020-12-27T13:55:37.565+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-12-27T13:55:37.574+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] 
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] 
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] 
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2020-12-27T13:55:37.584+0000 I  CONTROL  [initandlisten] 
+2020-12-27T13:55:37.594+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-12-27T13:55:37.598+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-12-27T13:55:37.598+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-12-27T13:55:37.598+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-12-27T13:55:37.602+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-12-27T13:55:37.602+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-12-27T13:55:37.609+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-12-27T13:55:37.610+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-12-27T13:55:37.610+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-12-27T13:55:37.610+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2020-12-27T13:55:37.610+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2020-12-27T13:55:38.005+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2020-12-27T13:55:38.016+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-12-27T13:56:09.068+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:57590 #1 (1 connection now open)
+2020-12-27T13:56:09.078+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.4:57590 conn1: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T13:56:11.355+0000 I  NETWORK  [conn1] end connection 172.18.0.4:57590 (0 connections now open)
+2020-12-27T13:56:23.738+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:57592 #2 (1 connection now open)
+2020-12-27T13:56:23.744+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.4:57592 conn2: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T13:56:32.220+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:57612 #3 (2 connections now open)
+2020-12-27T13:56:32.221+0000 I  NETWORK  [conn3] received client metadata from 172.18.0.4:57612 conn3: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T13:56:32.226+0000 I  SHARDING [conn3] Marking collection ezbacktest.charts as collection version: <unsharded>
+2020-12-27T14:00:19.723+0000 I  NETWORK  [conn3] end connection 172.18.0.4:57612 (1 connection now open)
+2020-12-27T14:00:19.723+0000 I  NETWORK  [conn2] end connection 172.18.0.4:57592 (0 connections now open)
+2020-12-27T14:02:31.285+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:57642 #4 (1 connection now open)
+2020-12-27T14:02:31.292+0000 I  NETWORK  [conn4] received client metadata from 172.18.0.4:57642 conn4: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T14:11:42.054+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:57662 #5 (2 connections now open)
+2020-12-27T14:11:42.057+0000 I  NETWORK  [conn5] received client metadata from 172.18.0.4:57662 conn5: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T14:39:22.980+0000 I  SHARDING [conn5] Marking collection ezbacktest.scripts as collection version: <unsharded>
+2020-12-27T14:49:47.589+0000 I  NETWORK  [conn5] end connection 172.18.0.4:57662 (1 connection now open)
+2020-12-27T14:49:47.589+0000 I  NETWORK  [conn4] end connection 172.18.0.4:57642 (0 connections now open)
+2020-12-27T14:49:57.744+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:58024 #6 (1 connection now open)
+2020-12-27T14:49:57.753+0000 I  NETWORK  [conn6] received client metadata from 172.18.0.4:58024 conn6: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T14:53:01.688+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:58052 #7 (2 connections now open)
+2020-12-27T14:53:01.689+0000 I  NETWORK  [conn7] received client metadata from 172.18.0.4:58052 conn7: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2020-12-27T20:35:48.927+0000 I  NETWORK  [conn7] end connection 172.18.0.4:58052 (1 connection now open)
+2020-12-27T20:35:48.927+0000 I  NETWORK  [conn6] end connection 172.18.0.4:58024 (0 connections now open)

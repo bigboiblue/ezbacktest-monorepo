@@ -13,10 +13,12 @@ import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./default_values.js";
 import synchronize from "./DyPlugins/synchronize";
 import { ohlcData } from "../../../assets/data/aapl_1d";
 import {
-    CalculateOptions, ChartSettings, Params, Sector,
-} from "./chart_typings";
+    CalculateOptions, ChartSettings, Data, Params, Sector,
+} from "./typings/chart";
 import chartSettings from "./ChartSettings";
 import allPlotter from "./Plotters/allPlotter";
+import calculate from "./Indicators/raw";
+import { CalculateFunction, CalculateReturn, DyData } from "./typings/script";
 //@ts-ignore
 DyGraph.synchronize = synchronize;
 
@@ -37,6 +39,78 @@ let containers: ReactElement[] = [];
 let graphs: DyGraph[] = [];
 interface Props { }
 
+
+const getBody = (str: string) => str.substring(
+    str.indexOf("{") + 1,
+    str.lastIndexOf("}"),
+);
+
+
+async function getScriptFunctions(sectors: Sector[]): Promise<Function[][]> {
+    let user_ids = [];
+    let names = [];
+    for (let i = 0; i < sectors.length; i++) {
+        let sector = sectors[i];
+        let indicators = sector.indicators;
+        user_ids = [...user_ids, ...(indicators.map((obj) => obj.user_id))];
+        names = [...names, ...(indicators.map((obj) => obj.name))];
+    }
+    const scripts: { function: string; name: string; user_id: string }[] = (await axios({
+        method: "POST",
+        url: "http://localhost:8081/api/v1/script/get",
+        data: { names, user_ids },
+    })).data.scripts;
+    if (scripts.length !== names.length) { // Fix for having less functions returned since you are using 2 of the same script on 1 chart
+        for (let i = 0; i < names.length - 1; i++) {
+            const sameAsNext = scripts[i].name === names[i + 1] && scripts[i].user_id === user_ids[i + 1];
+            if (sameAsNext) { // Then duplicate
+                scripts.splice(i + 1, 0, scripts[i]);
+            }
+        }
+    }
+
+
+    /** Turn returned array into an array of array. Each sub array corresponds to a sector
+     *  Also converts strings into functions
+     */
+    const ret: Function[][] = [];
+    let offset = 0;
+    for (let i = 0; i < sectors.length; i++) {
+        let sector = sectors[i];
+        const indicatorFunctions: Function[] = [];
+        for (let j = 0; j < sector.indicators.length; j++) {
+            indicatorFunctions.push(new Function("_ref", getBody(scripts[offset].function))); // eslint-disable-line
+            offset++;
+        }
+        ret.push(indicatorFunctions);
+    }
+    return ret;
+}
+
+/*** Combines the calculated indicator values into a format acceptable by DyGraphs.
+ * * This format is: [Date, ...number[]][]
+ */
+function combineIndicatorVals(allData: DyData[]): DyData {
+    const DATE_INDEX = 0;
+    if (allData.length === 1) return allData[0];
+
+    const ret: DyData = [];
+    for (let i = 0; i < allData.length; i++) {
+        const indicatorData = allData[i];
+        for (let j = 0; j < indicatorData.length; j++) {
+            const current = indicatorData[j];
+            const len = current.length;
+            /** Add all dates (all OHLC dates must remain present in OHLC return) */
+            if (i === 0) ret.push([current[DATE_INDEX]]);
+            for (let x = 1; x < current.length; x++) { // Starts at 1 to skip the date index
+                ret[j].push(current[x]);
+            }
+        }
+    }
+    return ret;
+}
+
+
 /**
  * Styles of Dygraphs are embedded into the styled component in style/ChartStyle.js
  *
@@ -44,6 +118,7 @@ interface Props { }
 function Chart(props: Props): React.ReactElement {
     const [forceUpdate, setForceUpdate] = useState(false);
     const chartRefs = useRef([]);
+
 
     if (!chartSettings.isInitialised) {
         /** //TODO:: THIS NEEDS TO BE A SINGLETON */
@@ -78,7 +153,9 @@ function Chart(props: Props): React.ReactElement {
                         position: 1,
                         size: 0.7,
                         indicators: [{
-                            link: "raw.ts",
+                            name: "raw",
+                            user_id: "TEST",
+                            private: false,
                             params: {
                                 style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
                             },
@@ -98,7 +175,9 @@ function Chart(props: Props): React.ReactElement {
                         position: 2,
                         size: 0.3,
                         indicators: [{
-                            link: "raw.ts",
+                            name: "raw",
+                            user_id: "TEST",
+                            private: false,
                             params: {
                                 style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
                             },
@@ -113,9 +192,9 @@ function Chart(props: Props): React.ReactElement {
             });
     }
 
+    // Set refs for use in next useEffect
     useEffect(() => {
         if (!chartSettings.isInitialised) return;
-
 
         const { theming } = chartSettings;
         const allContainers: ReactElement[] = [];
@@ -136,80 +215,82 @@ function Chart(props: Props): React.ReactElement {
 
     // TODO: add margin, grid and axis theming loading
     useEffect(() => {
-        if (containers.length === 0) return;
-        const allGraphs: DyGraph[] = [];
-        const maxPosition = Math.max(...(chartSettings.sectors.map((val) => val.position)));
-        for (let i = 0; i < chartSettings.sectors.length; i++) {
-            const sector = chartSettings.sectors[i];
-            const shouldDrawXAxis = sector.position === maxPosition;
-
-            const indicatorStyles: string[] = [];
-            const indicatorColors: string[][] = [];
-            const indicatorVals = [];
-            const imports = [];
-            for (let j = 0; j < sector.indicators.length; j++) {
-                const indicator = sector.indicators[j];
-                // TODO: ERROR cannot find file (cos its a bundle). Instead, get file from server.
-                const link = `./Indicators/${indicator.link}`;
-                indicatorStyles.push(indicator.params.style);
-                indicatorColors.push(indicator.params.colors);
-                imports.push(import(link));
-                // TODO: Now run calculate function in the file at indicator.link and add it to indicatorVals array (ensure no duplicate dates)
-            }
-            Promise.all(imports).then((values) => {
-                console.log("DIOWJOIDJWO");
-                for (let x = 0; x < values.length; x++) {
-                    let calculate: (options: CalculateOptions) => any = values[0];
-                    const params = sector.indicators[x].params;
-                    // TODO: preprocess data so that it's split into opens[] closes[] highs[] lows[] volumes[] and dates[]
-                    // result = calculate({...params, data});
-                    // indicatorStyles.push(results.style);
-                    // indicatorColors.push(results.colors);
-                    console.log(values);
-                }
+        (async () => {
+            if (containers.length === 0) return;
+            await axios({
+                method: "POST",
+                url: "http://localhost:8081/api/v1/script/add",
+                data: { user_id: "TEST", name: "raw", function: calculate.toString() },
             });
 
-            allGraphs.push(new DyGraph(chartRefs.current[i], ohlcData,
-                {
-                    labels: ["time", "open", "high", "low", "close"],
-                    digitsAfterDecimal: 5,
-                    plotter: (e) => { allPlotter(e, { indicatorStyles, indicatorColors }); },
-                    series: {
-                        open: { axis: "y2" },
-                        high: { axis: "y2" },
-                        low: { axis: "y2" },
-                        close: { axis: "y2" },
-                    },
-                    interactionModel: {
-                        mousedown: mouseDown,
-                        mousemove: mouseMove,
-                        mouseup: mouseUp,
-                        click: mouseClick,
-                        dblclick: mouseDoubleClick,
-                        mousewheel: mouseScroll,
-                    },
-                    axes: {
-                        x: { axisLabelFontSize: X_AXIS_WIDTH, drawGrid: false, drawAxis: shouldDrawXAxis },
-                        y: {
-                            drawGrid: false, // Must be true to see y2 grid
-                            axisLabelWidth: 0,
-                            independentTicks: false,
-                            // To hide y1 axis, set font size to 0 in styles
+            const allGraphs: DyGraph[] = [];
+            const maxPosition = Math.max(...(chartSettings.sectors.map((val) => val.position)));
+            const functions = await getScriptFunctions(chartSettings.sectors);
+            //// Sector init
+            for (let i = 0; i < chartSettings.sectors.length; i++) {
+                const sector = chartSettings.sectors[i];
+                const shouldDrawXAxis = sector.position === maxPosition; // Only draw x axis at the bottom
+
+
+                //// Indicator init
+                const indicatorStyles: string[] = [];
+                const indicatorColors: string[][] = [];
+                const indicatorVals: DyData[] = [];
+                const indicatorLabels: string[] = [];
+                for (let j = 0; j < sector.indicators.length; j++) {
+                    const indicator = sector.indicators[j];
+                    // @ts-ignore
+                    const calcFunction: CalculateFunction = functions[i][j];
+                    // @ts-ignore
+                    const ret = calcFunction({ data: ohlcData, params: indicator.params });
+                    indicatorStyles.push(ret.style);
+                    indicatorColors.push(ret.colors);
+                    indicatorVals.push(ret.data);
+                    indicatorLabels.push(...(ret.labels.map((s) => s.toLowerCase())));
+                }
+                const graphData = combineIndicatorVals(indicatorVals);
+                allGraphs.push(new DyGraph(chartRefs.current[i], graphData,
+                    {
+                        labels: ["time", ...indicatorLabels],
+                        digitsAfterDecimal: 5,
+                        plotter: (e) => { allPlotter(e, { indicatorStyles, indicatorColors }); },
+                        series: {
+                            open: { axis: "y2" },
+                            high: { axis: "y2" },
+                            low: { axis: "y2" },
+                            close: { axis: "y2" },
                         },
-                        y2: {
-                            drawGrid: true,
-                            axisLabelWidth: Y_AXIS_WIDTH,
-                            independentTicks: true,
+                        interactionModel: {
+                            mousedown: mouseDown,
+                            mousemove: mouseMove,
+                            mouseup: mouseUp,
+                            click: mouseClick,
+                            dblclick: mouseDoubleClick,
+                            mousewheel: mouseScroll,
                         },
-                    },
-                    highlightCircleSize: 0, // remove highlight circles,
-                }));
-        }
-        graphs = allGraphs;
-        if (graphs.length > 1) {
-            // @ts-ignore
-            let sync = DyGraph.synchronize(...graphs);
-        }
+                        axes: {
+                            x: { axisLabelFontSize: X_AXIS_WIDTH, drawGrid: false, drawAxis: shouldDrawXAxis },
+                            y: {
+                                drawGrid: false, // Must be true to see y2 grid
+                                axisLabelWidth: 0,
+                                independentTicks: false,
+                                // To hide y1 axis, set font size to 0 in styles
+                            },
+                            y2: {
+                                drawGrid: true,
+                                axisLabelWidth: Y_AXIS_WIDTH,
+                                independentTicks: true,
+                            },
+                        },
+                        highlightCircleSize: 0, // remove highlight circles,
+                    }));
+            }
+            graphs = allGraphs;
+            if (graphs.length > 1) {
+                // @ts-ignore
+                let sync = DyGraph.synchronize(...graphs);
+            }
+        })(); // Call the async function
     }, [containers]);
 
     const overallHeight = "50rem"; //rem
