@@ -1,8 +1,9 @@
 import DyGraph from "dygraphs";
 import { DyEvent } from "../../../../typings/DyGraph";
+import { ChartStyle } from "../typings/chart";
 
 // offset: the start index of OHLC data in e.allSeriesPoints (inclusive)
-function candlestickPlotter(e: DyEvent, offset: number, colors: string[]) {
+function candlestickPlotter(e: DyEvent, offset: number, colors: ChartStyle) {
     let setCount = e.seriesCount;
     if (setCount !== 4) throw Error("Exactly 4 prices (open high low close) and 1 volume for each point must be provided for candle chart ");
     if (e.seriesIndex !== 0) return; // Only draw once (miss index 1-3)
@@ -25,11 +26,9 @@ function candlestickPlotter(e: DyEvent, offset: number, colors: string[]) {
     const HIGH = 1 + offset;
     const LOW = 2 + offset;
     const CLOSE = 3 + offset;
-    const upColor = colors[0];
-    const upBorder = colors[1];
-    const downColor = colors[2];
-    const downBorder = colors[3];
-    const dojiColor = colors[4];
+    const {
+        upColor, upBorder, downColor, downBorder, dojiColor,
+    } = colors;
     for (let i = 0; i < sets[0].length; i++) {
         ctx.beginPath();
         ctx.moveTo(sets[HIGH][i].canvasx, sets[HIGH][i].canvasy);

@@ -13,7 +13,7 @@ import { X_AXIS_WIDTH, Y_AXIS_WIDTH } from "./default_values.js";
 import synchronize from "./DyPlugins/synchronize";
 import { ohlcData } from "../../../assets/data/aapl_1d";
 import {
-    CalculateOptions, ChartSettings, Data, Params, Sector,
+    CalculateOptions, ChartSettings, ChartStyles, Data, Params, Sector,
 } from "./typings/chart";
 import chartSettings from "./ChartSettings";
 import allPlotter from "./Plotters/allPlotter";
@@ -157,7 +157,16 @@ function Chart(props: Props): React.ReactElement {
                             user_id: "TEST",
                             private: false,
                             params: {
-                                style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
+                                styles: {
+                                    OHLC: {
+                                        type: "candlestick",
+                                        upColor: "#3ccf5e",
+                                        upBorder: "#202020",
+                                        downColor: "#f75c5c",
+                                        downBorder: "#202020",
+                                        dojiColor: "#202020",
+                                    },
+                                },
                             },
                             z_index: 1,
                         }],
@@ -174,15 +183,48 @@ function Chart(props: Props): React.ReactElement {
                     }, {
                         position: 2,
                         size: 0.3,
-                        indicators: [{
-                            name: "raw",
-                            user_id: "TEST",
-                            private: false,
-                            params: {
-                                style: "candlestick", colors: ["#3ccf5e", "#202020", "#f75c5c", "#202020", "#202020"],
+                        indicators: [
+                            {
+                                name: "raw",
+                                user_id: "TEST",
+                                private: false,
+                                params: {
+                                    styles: {
+                                        OHLC: {
+                                            type: "candlestick",
+                                            upColor: "#3ccf5e",
+                                            upBorder: "#202020",
+                                            downColor: "#f75c5c",
+                                            downBorder: "#202020",
+                                            dojiColor: "#202020",
+                                        },
+                                    },
+                                },
+                                z_index: 1,
                             },
-                            z_index: 1,
-                        }],
+                            // {
+                            //     name: "MACD",
+                            //     user_id: "TEST",
+                            //     private: false,
+                            //     params: {
+                            //         styles: {
+                            //             "Slow MACD": {
+                            //                 type: "line",
+                            //                 color: "#3ccf5e",
+                            //             },
+                            //             "Fast MACD": {
+                            //                 type: "line",
+                            //                 color: "#3ccf5e",
+                            //             },
+                            //             Histogram: {
+                            //                 type: "bar",
+                            //                 color: "#3ccf5e",
+                            //             },
+                            //         },
+                            //     },
+                            //     z_index: 1,
+                            // }
+                        ],
                         theming: {},
                         drawings: [],
                     }],
@@ -233,8 +275,7 @@ function Chart(props: Props): React.ReactElement {
 
 
                 //// Indicator init
-                const indicatorStyles: string[] = [];
-                const indicatorColors: string[][] = [];
+                const indicatorStyles: ChartStyles[] = [];
                 const indicatorVals: DyData[] = [];
                 const indicatorLabels: string[] = [];
                 for (let j = 0; j < sector.indicators.length; j++) {
@@ -243,17 +284,20 @@ function Chart(props: Props): React.ReactElement {
                     const calcFunction: CalculateFunction = functions[i][j];
                     // @ts-ignore
                     const ret = calcFunction({ data: ohlcData, params: indicator.params });
-                    indicatorStyles.push(ret.style);
-                    indicatorColors.push(ret.colors);
+                    indicatorStyles.push(ret.styles);
                     indicatorVals.push(ret.data);
-                    indicatorLabels.push(...(ret.labels.map((s) => s.toLowerCase())));
+                    if (Object.values(ret.styles)[0].upColor) { // If this is a candlestick chart
+                        indicatorLabels.push("open", "high", "low", "close");
+                    } else {
+                        indicatorLabels.push(...(Object.keys(ret.styles).map((s) => s.toLowerCase())));
+                    }
                 }
                 const graphData = combineIndicatorVals(indicatorVals);
                 allGraphs.push(new DyGraph(chartRefs.current[i], graphData,
                     {
                         labels: ["time", ...indicatorLabels],
                         digitsAfterDecimal: 5,
-                        plotter: (e) => { allPlotter(e, { indicatorStyles, indicatorColors }); },
+                        plotter: (e) => { allPlotter(e, { indicatorStyles }); },
                         series: {
                             open: { axis: "y2" },
                             high: { axis: "y2" },

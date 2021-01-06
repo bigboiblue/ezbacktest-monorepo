@@ -45,12 +45,24 @@ export type Indicator = {
     z_index: number;
 }
 
-export type ChartStyle = "candlestick" | "bar" | "histogram" | "line" | "area";
+export type ChartType = "candlestick" | "bar" | "histogram" | "line" | "area";
+
+export type ChartStyle = {
+    type: ChartType;
+    color?: string;
+    upColor?: string;
+    upBorder?: string;
+    downColor?: string;
+    downBorder?: string;
+    dojiColor?: string;
+}
+
+export type ChartStyles = {
+    [field: string]: ChartStyle;
+};
 
 export type Params = {
-    style: ChartStyle;
-    /*** For candlesticks, the colors take on the format: [upColor, upOutline, downColor, downOutline, dojiColor] */
-    colors: string[];
+    styles: ChartStyles;
     [field: string]: any;
 }
 

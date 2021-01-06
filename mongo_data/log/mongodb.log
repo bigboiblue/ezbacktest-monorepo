@@ -1,215 +1,56 @@
-2021-01-05T12:59:31.907+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
-2021-01-05T12:59:31.914+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=9 port=27017 dbpath=/data/db 64-bit host=512102e219fb
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] db version v4.2.10
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] modules: none
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] build environment:
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten]     distmod: debian10
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten]     distarch: x86_64
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
-2021-01-05T12:59:31.915+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
-2021-01-05T12:59:31.917+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
-2021-01-05T12:59:31.917+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
-2021-01-05T12:59:31.917+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
-2021-01-05T12:59:31.917+0000 I  STORAGE  [initandlisten] 
-2021-01-05T12:59:31.917+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
-2021-01-05T12:59:31.917+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2021-01-05T12:59:31.917+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
-2021-01-05T12:59:32.626+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851572:626152][9:0x7f6a6db55d40], txn-recover: Recovering log 13 through 14
-2021-01-05T12:59:32.729+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851572:729838][9:0x7f6a6db55d40], txn-recover: Recovering log 14 through 14
-2021-01-05T12:59:32.805+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851572:805781][9:0x7f6a6db55d40], txn-recover: Main recovery loop: starting at 13/23552 to 14/256
-2021-01-05T12:59:32.900+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851572:900087][9:0x7f6a6db55d40], txn-recover: Recovering log 13 through 14
-2021-01-05T12:59:32.968+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851572:968118][9:0x7f6a6db55d40], txn-recover: Recovering log 14 through 14
-2021-01-05T12:59:33.018+0000 I  STORAGE  [initandlisten] WiredTiger message [1609851573:18230][9:0x7f6a6db55d40], txn-recover: Set global recovery timestamp: (0, 0)
-2021-01-05T12:59:33.104+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
-2021-01-05T12:59:33.113+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] 
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] 
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] 
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
-2021-01-05T12:59:33.124+0000 I  CONTROL  [initandlisten] 
-2021-01-05T12:59:33.135+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
-2021-01-05T12:59:33.140+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
-2021-01-05T12:59:33.142+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
-2021-01-05T12:59:33.142+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
-2021-01-05T12:59:33.147+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
-2021-01-05T12:59:33.147+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
-2021-01-05T12:59:33.157+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
-2021-01-05T12:59:33.158+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
-2021-01-05T12:59:33.158+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
-2021-01-05T12:59:33.158+0000 I  NETWORK  [listener] Listening on 0.0.0.0
-2021-01-05T12:59:33.158+0000 I  NETWORK  [listener] waiting for connections on port 27017
-2021-01-05T12:59:34.024+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
-2021-01-05T12:59:34.081+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
-2021-01-05T13:00:11.408+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52430 #1 (1 connection now open)
-2021-01-05T13:00:11.422+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.4:52430 conn1: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:00:30.169+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52452 #2 (2 connections now open)
-2021-01-05T13:00:30.171+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.4:52452 conn2: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:00:30.174+0000 I  SHARDING [conn2] Marking collection ezbacktest.charts as collection version: <unsharded>
-2021-01-05T13:00:30.251+0000 I  SHARDING [conn2] Marking collection ezbacktest.scripts as collection version: <unsharded>
-2021-01-05T13:01:18.060+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:46962 #3 (3 connections now open)
-2021-01-05T13:01:18.061+0000 I  NETWORK  [conn3] received client metadata from 127.0.0.1:46962 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.10" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.104-microsoft-standard" } }
-2021-01-05T13:04:35.731+0000 I  NETWORK  [conn2] end connection 172.18.0.4:52452 (2 connections now open)
-2021-01-05T13:04:35.731+0000 I  NETWORK  [conn1] end connection 172.18.0.4:52430 (1 connection now open)
-2021-01-05T13:04:48.712+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52476 #4 (2 connections now open)
-2021-01-05T13:04:48.720+0000 I  NETWORK  [conn4] received client metadata from 172.18.0.4:52476 conn4: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:04:52.600+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52496 #5 (3 connections now open)
-2021-01-05T13:04:52.601+0000 I  NETWORK  [conn5] received client metadata from 172.18.0.4:52496 conn5: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:05:42.555+0000 I  NETWORK  [conn5] end connection 172.18.0.4:52496 (2 connections now open)
-2021-01-05T13:05:42.555+0000 I  NETWORK  [conn4] end connection 172.18.0.4:52476 (1 connection now open)
-2021-01-05T13:05:48.887+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52504 #6 (2 connections now open)
-2021-01-05T13:05:48.893+0000 I  NETWORK  [conn6] received client metadata from 172.18.0.4:52504 conn6: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:05:56.154+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52526 #7 (3 connections now open)
-2021-01-05T13:05:56.155+0000 I  NETWORK  [conn7] received client metadata from 172.18.0.4:52526 conn7: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:11:16.425+0000 I  NETWORK  [conn3] end connection 127.0.0.1:46962 (2 connections now open)
-2021-01-05T13:11:21.416+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47164 #8 (3 connections now open)
-2021-01-05T13:11:21.417+0000 I  NETWORK  [conn8] received client metadata from 127.0.0.1:47164 conn8: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.10" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.104-microsoft-standard" } }
-2021-01-05T13:11:23.604+0000 I  SHARDING [conn8] Marking collection test.scripts as collection version: <unsharded>
-2021-01-05T13:12:29.216+0000 I  COMMAND  [conn8] CMD: drop ezbacktest.scripts
-2021-01-05T13:12:29.216+0000 I  STORAGE  [conn8] Finishing collection drop for ezbacktest.scripts (ebdba640-8b00-431a-8080-51054938bbde).
-2021-01-05T13:12:34.041+0000 I  STORAGE  [conn7] createCollection: ezbacktest.scripts with generated UUID: ed6afe88-3402-41da-883c-4fb9f70476e4 and options: {}
-2021-01-05T13:12:34.075+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52694 #9 (4 connections now open)
-2021-01-05T13:12:34.076+0000 I  NETWORK  [conn9] received client metadata from 172.18.0.4:52694 conn9: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:12:34.105+0000 I  INDEX    [conn7] index build: done building index _id_ on ns ezbacktest.scripts
-2021-01-05T13:13:36.378+0000 I  COMMAND  [conn8] CMD: drop ezbacktest.scripts
-2021-01-05T13:13:36.378+0000 I  STORAGE  [conn8] Finishing collection drop for ezbacktest.scripts (ed6afe88-3402-41da-883c-4fb9f70476e4).
-2021-01-05T13:13:41.720+0000 I  STORAGE  [conn9] createCollection: ezbacktest.scripts with generated UUID: 09f75dad-1167-4992-b06c-dc7d9616a077 and options: {}
-2021-01-05T13:13:41.783+0000 I  INDEX    [conn9] index build: done building index _id_ on ns ezbacktest.scripts
-2021-01-05T13:16:14.250+0000 I  NETWORK  [conn9] end connection 172.18.0.4:52694 (3 connections now open)
-2021-01-05T13:16:14.250+0000 I  NETWORK  [conn7] end connection 172.18.0.4:52526 (2 connections now open)
-2021-01-05T13:16:14.250+0000 I  NETWORK  [conn6] end connection 172.18.0.4:52504 (1 connection now open)
-2021-01-05T13:16:20.535+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52810 #10 (2 connections now open)
-2021-01-05T13:16:20.543+0000 I  NETWORK  [conn10] received client metadata from 172.18.0.4:52810 conn10: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:16:23.267+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52830 #11 (3 connections now open)
-2021-01-05T13:16:23.268+0000 I  NETWORK  [conn11] received client metadata from 172.18.0.4:52830 conn11: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:18:07.258+0000 I  NETWORK  [conn10] end connection 172.18.0.4:52810 (2 connections now open)
-2021-01-05T13:18:07.258+0000 I  NETWORK  [conn11] end connection 172.18.0.4:52830 (1 connection now open)
-2021-01-05T13:18:11.165+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52838 #12 (2 connections now open)
-2021-01-05T13:18:11.172+0000 I  NETWORK  [conn12] received client metadata from 172.18.0.4:52838 conn12: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:18:13.427+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52862 #13 (3 connections now open)
-2021-01-05T13:18:13.429+0000 I  NETWORK  [conn13] received client metadata from 172.18.0.4:52862 conn13: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:18:48.006+0000 I  NETWORK  [conn13] end connection 172.18.0.4:52862 (2 connections now open)
-2021-01-05T13:18:48.007+0000 I  NETWORK  [conn12] end connection 172.18.0.4:52838 (1 connection now open)
-2021-01-05T13:18:52.342+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52876 #14 (2 connections now open)
-2021-01-05T13:18:52.348+0000 I  NETWORK  [conn14] received client metadata from 172.18.0.4:52876 conn14: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T13:18:54.489+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:52894 #15 (3 connections now open)
-2021-01-05T13:18:54.490+0000 I  NETWORK  [conn15] received client metadata from 172.18.0.4:52894 conn15: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:17:28.399+0000 I  NETWORK  [conn15] end connection 172.18.0.4:52894 (2 connections now open)
-2021-01-05T14:17:28.399+0000 I  NETWORK  [conn14] end connection 172.18.0.4:52876 (1 connection now open)
-2021-01-05T14:17:33.722+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53008 #16 (2 connections now open)
-2021-01-05T14:17:33.729+0000 I  NETWORK  [conn16] received client metadata from 172.18.0.4:53008 conn16: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:17:37.278+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53022 #17 (3 connections now open)
-2021-01-05T14:17:37.279+0000 I  NETWORK  [conn17] received client metadata from 172.18.0.4:53022 conn17: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:19:15.065+0000 I  NETWORK  [conn16] end connection 172.18.0.4:53008 (1 connection now open)
-2021-01-05T14:19:15.065+0000 I  NETWORK  [conn17] end connection 172.18.0.4:53022 (2 connections now open)
-2021-01-05T14:19:20.206+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53062 #18 (2 connections now open)
-2021-01-05T14:19:20.212+0000 I  NETWORK  [conn18] received client metadata from 172.18.0.4:53062 conn18: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:19:24.299+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53076 #19 (3 connections now open)
-2021-01-05T14:19:24.301+0000 I  NETWORK  [conn19] received client metadata from 172.18.0.4:53076 conn19: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:19:44.009+0000 I  NETWORK  [conn18] end connection 172.18.0.4:53062 (2 connections now open)
-2021-01-05T14:19:44.009+0000 I  NETWORK  [conn19] end connection 172.18.0.4:53076 (1 connection now open)
-2021-01-05T14:19:51.089+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53086 #20 (2 connections now open)
-2021-01-05T14:19:51.095+0000 I  NETWORK  [conn20] received client metadata from 172.18.0.4:53086 conn20: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:19:57.278+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53100 #21 (3 connections now open)
-2021-01-05T14:19:57.281+0000 I  NETWORK  [conn21] received client metadata from 172.18.0.4:53100 conn21: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:20:45.263+0000 I  NETWORK  [conn21] end connection 172.18.0.4:53100 (2 connections now open)
-2021-01-05T14:20:45.263+0000 I  NETWORK  [conn20] end connection 172.18.0.4:53086 (1 connection now open)
-2021-01-05T14:20:50.217+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53134 #22 (2 connections now open)
-2021-01-05T14:20:50.224+0000 I  NETWORK  [conn22] received client metadata from 172.18.0.4:53134 conn22: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:21:46.465+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53154 #23 (3 connections now open)
-2021-01-05T14:21:46.467+0000 I  NETWORK  [conn23] received client metadata from 172.18.0.4:53154 conn23: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:24:12.183+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53270 #24 (4 connections now open)
-2021-01-05T14:24:12.184+0000 I  NETWORK  [conn24] received client metadata from 172.18.0.4:53270 conn24: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:49:15.914+0000 I  NETWORK  [conn24] end connection 172.18.0.4:53270 (3 connections now open)
-2021-01-05T14:49:15.914+0000 I  NETWORK  [conn22] end connection 172.18.0.4:53134 (1 connection now open)
-2021-01-05T14:49:15.914+0000 I  NETWORK  [conn23] end connection 172.18.0.4:53154 (2 connections now open)
-2021-01-05T14:51:16.218+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53586 #25 (2 connections now open)
-2021-01-05T14:51:16.225+0000 I  NETWORK  [conn25] received client metadata from 172.18.0.4:53586 conn25: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T14:51:19.629+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:53606 #26 (3 connections now open)
-2021-01-05T14:51:19.630+0000 I  NETWORK  [conn26] received client metadata from 172.18.0.4:53606 conn26: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:01:29.340+0000 I  NETWORK  [conn26] end connection 172.18.0.4:53606 (2 connections now open)
-2021-01-05T15:01:29.341+0000 I  NETWORK  [conn25] end connection 172.18.0.4:53586 (1 connection now open)
-2021-01-05T15:01:43.852+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54088 #27 (2 connections now open)
-2021-01-05T15:01:43.867+0000 I  NETWORK  [conn27] received client metadata from 172.18.0.4:54088 conn27: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:01:46.590+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54108 #28 (3 connections now open)
-2021-01-05T15:01:46.592+0000 I  NETWORK  [conn28] received client metadata from 172.18.0.4:54108 conn28: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:01:58.425+0000 I  NETWORK  [conn28] end connection 172.18.0.4:54108 (2 connections now open)
-2021-01-05T15:01:58.425+0000 I  NETWORK  [conn27] end connection 172.18.0.4:54088 (1 connection now open)
-2021-01-05T15:02:06.295+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54126 #29 (2 connections now open)
-2021-01-05T15:02:06.303+0000 I  NETWORK  [conn29] received client metadata from 172.18.0.4:54126 conn29: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:07.761+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54134 #30 (3 connections now open)
-2021-01-05T15:02:07.763+0000 I  NETWORK  [conn30] received client metadata from 172.18.0.4:54134 conn30: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:11.524+0000 I  NETWORK  [conn30] end connection 172.18.0.4:54134 (2 connections now open)
-2021-01-05T15:02:11.524+0000 I  NETWORK  [conn29] end connection 172.18.0.4:54126 (1 connection now open)
-2021-01-05T15:02:17.233+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54142 #31 (2 connections now open)
-2021-01-05T15:02:17.240+0000 I  NETWORK  [conn31] received client metadata from 172.18.0.4:54142 conn31: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:19.113+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54156 #32 (3 connections now open)
-2021-01-05T15:02:19.115+0000 I  NETWORK  [conn32] received client metadata from 172.18.0.4:54156 conn32: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:33.535+0000 I  NETWORK  [conn32] end connection 172.18.0.4:54156 (2 connections now open)
-2021-01-05T15:02:33.536+0000 I  NETWORK  [conn31] end connection 172.18.0.4:54142 (1 connection now open)
-2021-01-05T15:02:39.260+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54170 #33 (2 connections now open)
-2021-01-05T15:02:39.267+0000 I  NETWORK  [conn33] received client metadata from 172.18.0.4:54170 conn33: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:43.718+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54190 #34 (3 connections now open)
-2021-01-05T15:02:43.720+0000 I  NETWORK  [conn34] received client metadata from 172.18.0.4:54190 conn34: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:43.841+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54204 #35 (4 connections now open)
-2021-01-05T15:02:43.841+0000 I  NETWORK  [conn35] received client metadata from 172.18.0.4:54204 conn35: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:02:54.852+0000 I  NETWORK  [conn8] end connection 127.0.0.1:47164 (3 connections now open)
-2021-01-05T15:02:57.382+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:48704 #36 (4 connections now open)
-2021-01-05T15:02:57.383+0000 I  NETWORK  [conn36] received client metadata from 127.0.0.1:48704 conn36: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.10" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.104-microsoft-standard" } }
-2021-01-05T15:02:59.776+0000 I  COMMAND  [conn36] CMD: drop test.scripts
-2021-01-05T15:03:13.198+0000 I  COMMAND  [conn36] CMD: drop ezbacktest.scripts
-2021-01-05T15:03:13.198+0000 I  STORAGE  [conn36] Finishing collection drop for ezbacktest.scripts (09f75dad-1167-4992-b06c-dc7d9616a077).
-2021-01-05T15:03:19.162+0000 I  NETWORK  [conn35] end connection 172.18.0.4:54204 (3 connections now open)
-2021-01-05T15:03:19.162+0000 I  NETWORK  [conn34] end connection 172.18.0.4:54190 (1 connection now open)
-2021-01-05T15:03:19.162+0000 I  NETWORK  [conn33] end connection 172.18.0.4:54170 (2 connections now open)
-2021-01-05T15:03:20.607+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54210 #37 (2 connections now open)
-2021-01-05T15:03:20.614+0000 I  NETWORK  [conn37] received client metadata from 172.18.0.4:54210 conn37: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:03:22.771+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54224 #38 (3 connections now open)
-2021-01-05T15:03:22.773+0000 I  NETWORK  [conn38] received client metadata from 172.18.0.4:54224 conn38: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:03:22.847+0000 I  STORAGE  [conn38] createCollection: ezbacktest.scripts with generated UUID: 47c35173-0791-4176-9be3-0662b977d0ea and options: {}
-2021-01-05T15:03:22.898+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54232 #39 (4 connections now open)
-2021-01-05T15:03:22.899+0000 I  NETWORK  [conn39] received client metadata from 172.18.0.4:54232 conn39: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:03:22.913+0000 I  INDEX    [conn38] index build: done building index _id_ on ns ezbacktest.scripts
-2021-01-05T15:08:59.447+0000 I  NETWORK  [conn36] end connection 127.0.0.1:48704 (3 connections now open)
-2021-01-05T15:09:05.627+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:48762 #40 (4 connections now open)
-2021-01-05T15:09:05.628+0000 I  NETWORK  [conn40] received client metadata from 127.0.0.1:48762 conn40: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.10" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.104-microsoft-standard" } }
-2021-01-05T15:09:07.993+0000 I  NETWORK  [conn39] end connection 172.18.0.4:54232 (3 connections now open)
-2021-01-05T15:09:07.993+0000 I  NETWORK  [conn38] end connection 172.18.0.4:54224 (2 connections now open)
-2021-01-05T15:09:07.993+0000 I  NETWORK  [conn37] end connection 172.18.0.4:54210 (1 connection now open)
-2021-01-05T15:09:12.336+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54268 #41 (2 connections now open)
-2021-01-05T15:09:12.344+0000 I  NETWORK  [conn41] received client metadata from 172.18.0.4:54268 conn41: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:09:15.338+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54288 #42 (3 connections now open)
-2021-01-05T15:09:15.339+0000 I  NETWORK  [conn42] received client metadata from 172.18.0.4:54288 conn42: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:09:26.273+0000 I  COMMAND  [conn40] CMD: drop ezbacktest.scripts
-2021-01-05T15:09:26.273+0000 I  STORAGE  [conn40] Finishing collection drop for ezbacktest.scripts (47c35173-0791-4176-9be3-0662b977d0ea).
-2021-01-05T15:09:29.868+0000 I  STORAGE  [conn42] createCollection: ezbacktest.scripts with generated UUID: 229a908f-7e37-435b-be42-515a14970924 and options: {}
-2021-01-05T15:09:29.921+0000 I  INDEX    [conn42] index build: done building index _id_ on ns ezbacktest.scripts
-2021-01-05T15:09:29.952+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54326 #43 (4 connections now open)
-2021-01-05T15:09:29.954+0000 I  NETWORK  [conn43] received client metadata from 172.18.0.4:54326 conn43: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:11:36.128+0000 I  NETWORK  [conn40] end connection 127.0.0.1:48762 (3 connections now open)
-2021-01-05T15:11:40.377+0000 I  NETWORK  [conn43] end connection 172.18.0.4:54326 (2 connections now open)
-2021-01-05T15:11:40.377+0000 I  NETWORK  [conn41] end connection 172.18.0.4:54268 (0 connections now open)
-2021-01-05T15:11:40.377+0000 I  NETWORK  [conn42] end connection 172.18.0.4:54288 (1 connection now open)
-2021-01-05T15:11:44.124+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54382 #44 (1 connection now open)
-2021-01-05T15:11:44.132+0000 I  NETWORK  [conn44] received client metadata from 172.18.0.4:54382 conn44: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:11:46.136+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54404 #45 (2 connections now open)
-2021-01-05T15:11:46.137+0000 I  NETWORK  [conn45] received client metadata from 172.18.0.4:54404 conn45: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:17:41.872+0000 I  NETWORK  [conn44] end connection 172.18.0.4:54382 (1 connection now open)
-2021-01-05T15:17:41.872+0000 I  NETWORK  [conn45] end connection 172.18.0.4:54404 (0 connections now open)
-2021-01-05T15:18:01.531+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54472 #46 (1 connection now open)
-2021-01-05T15:18:01.539+0000 I  NETWORK  [conn46] received client metadata from 172.18.0.4:54472 conn46: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:26:32.394+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54528 #47 (2 connections now open)
-2021-01-05T15:26:32.395+0000 I  NETWORK  [conn47] received client metadata from 172.18.0.4:54528 conn47: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:30:51.679+0000 I  NETWORK  [conn47] end connection 172.18.0.4:54528 (1 connection now open)
-2021-01-05T15:30:51.679+0000 I  NETWORK  [conn46] end connection 172.18.0.4:54472 (0 connections now open)
-2021-01-05T15:30:56.364+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54724 #48 (1 connection now open)
-2021-01-05T15:30:56.371+0000 I  NETWORK  [conn48] received client metadata from 172.18.0.4:54724 conn48: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
-2021-01-05T15:30:58.885+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:54740 #49 (2 connections now open)
-2021-01-05T15:30:58.886+0000 I  NETWORK  [conn49] received client metadata from 172.18.0.4:54740 conn49: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2021-01-06T16:12:05.174+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2021-01-06T16:12:05.180+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=10 port=27017 dbpath=/data/db 64-bit host=512102e219fb
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] db version v4.2.10
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] git version: 88276238fa97b47c0ef14362b343c5317ecbd739
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] modules: none
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] build environment:
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2021-01-06T16:12:05.181+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2021-01-06T16:12:05.183+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2021-01-06T16:12:05.183+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2021-01-06T16:12:05.183+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2021-01-06T16:12:05.183+0000 I  STORAGE  [initandlisten] 
+2021-01-06T16:12:05.183+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-01-06T16:12:05.183+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-01-06T16:12:05.183+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5831M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2021-01-06T16:12:05.866+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949525:866019][10:0x7fbeb20d0d40], txn-recover: Recovering log 14 through 15
+2021-01-06T16:12:05.912+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949525:912113][10:0x7fbeb20d0d40], txn-recover: Recovering log 15 through 15
+2021-01-06T16:12:05.988+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949525:988402][10:0x7fbeb20d0d40], txn-recover: Main recovery loop: starting at 14/126464 to 15/256
+2021-01-06T16:12:06.068+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949526:68742][10:0x7fbeb20d0d40], txn-recover: Recovering log 14 through 15
+2021-01-06T16:12:06.125+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949526:125158][10:0x7fbeb20d0d40], txn-recover: Recovering log 15 through 15
+2021-01-06T16:12:06.161+0000 I  STORAGE  [initandlisten] WiredTiger message [1609949526:161250][10:0x7fbeb20d0d40], txn-recover: Set global recovery timestamp: (0, 0)
+2021-01-06T16:12:06.267+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2021-01-06T16:12:06.283+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2021-01-06T16:12:06.298+0000 I  CONTROL  [initandlisten] 
+2021-01-06T16:12:06.298+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-06T16:12:06.298+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-06T16:12:06.298+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2021-01-06T16:12:06.298+0000 I  CONTROL  [initandlisten] 
+2021-01-06T16:12:06.299+0000 I  CONTROL  [initandlisten] 
+2021-01-06T16:12:06.299+0000 I  CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2021-01-06T16:12:06.299+0000 I  CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2021-01-06T16:12:06.299+0000 I  CONTROL  [initandlisten] 
+2021-01-06T16:12:06.309+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2021-01-06T16:12:06.313+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2021-01-06T16:12:06.314+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2021-01-06T16:12:06.314+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2021-01-06T16:12:06.317+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2021-01-06T16:12:06.319+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2021-01-06T16:12:06.323+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2021-01-06T16:12:06.324+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2021-01-06T16:12:06.324+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2021-01-06T16:12:06.324+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+2021-01-06T16:12:06.324+0000 I  NETWORK  [listener] waiting for connections on port 27017
+2021-01-06T16:12:07.025+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2021-01-06T16:12:07.055+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2021-01-06T16:12:44.113+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:39290 #1 (1 connection now open)
+2021-01-06T16:12:44.121+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.4:39290 conn1: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2021-01-06T16:13:38.940+0000 I  NETWORK  [listener] connection accepted from 172.18.0.4:39312 #2 (2 connections now open)
+2021-01-06T16:13:38.941+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.4:39312 conn2: { driver: { name: "nodejs|Mongoose", version: "3.6.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.104-microsoft-standard" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.6.3|5.10.15" }
+2021-01-06T16:13:38.944+0000 I  SHARDING [conn2] Marking collection ezbacktest.charts as collection version: <unsharded>
+2021-01-06T16:13:39.071+0000 I  SHARDING [conn2] Marking collection ezbacktest.scripts as collection version: <unsharded>
